@@ -1,0 +1,33 @@
+{
+  "name": "ti4-hb-absols-relics",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "setup": "ttpg-scripts setup",
+    "dev": "ttpg-scripts dev",
+    "clean": "ttpg-scripts clean",
+    "reset": "ttpg-scripts reset",
+    "build": "ttpg-scripts build",
+    "purge": "ttpg-scripts purge",
+    "libpack": "ttpg-scripts libpack",
+    "watch": "ttpg-scripts watch",
+    "lint": "ESLINT_USE_FLAT_CONFIG=false eslint --ext .ts src",
+    "postpublish": "ttpg-scripts postpublish",
+    "hb-helper": "yarn dev && jest --config jest.config-build.json && yarn dev"
+  },
+  "keywords": [],
+  "author": "",
+  "devDependencies": {
+    "@tabletop-playground/api": "^0.41.0",
+    "@types/jest": "^30.0.0",
+    "@typescript-eslint/eslint-plugin": "^8.71.0",
+    "@typescript-eslint/parser": "^8.71.0",
+    "eslint": "^8.57.0",
+    "ti4-hb-helper": "^1.2.0",
+    "ttpg-scripts": "^1.5.0",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "ti4-ttpg-ts": "^1.1.1"
+  }
+}
