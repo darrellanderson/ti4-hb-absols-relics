@@ -1,1 +1,10 @@
-{"name":"TI4 Homebrew: Absol's Agendas","slug":"ti4-hb-absols-agendas","version":"1.0.0","transpile":true,"guid":{"dev":"7A2D587D812CE5CFC5612580192C523B","prd":"7A2D587D812CE5CFC5612580192C524C"},"modId":6412746}
+{
+  "name": "TI4 Homebrew: Absol's Relics",
+  "slug": "ti4-hb-absols-relics",
+  "version": "1.0.0",
+  "transpile": true,
+  "guid": {
+    "dev": "ED9CE1C5959403495BC93BD091BCDE53",
+    "prd": "ED9CE1C5959403495BC93BD091BCDE64"
+  },
+}
