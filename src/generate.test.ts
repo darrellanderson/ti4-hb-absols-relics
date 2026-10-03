@@ -5,12 +5,18 @@ it("generate", async () => {
   let abstractGen: AbstractGen;
   const errors: Array<string> = [];
 
-  // eslint-disable-next-line prefer-const
   abstractGen = new GenExtDeck(homebrew)
     .setDeckType("relic")
     .setIsLandscape(false)
     .setIsSharedBack(true)
     .setTag("card-relic");
+  await abstractGen.generate(errors);
+  await abstractGen.writeOutputFiles();
+
+  abstractGen = new GenExtDeck(homebrew)
+    .setDeckType("relic-landscape")
+    .setIsLandscape(true)
+    .setIsSharedBack(true);
   await abstractGen.generate(errors);
   await abstractGen.writeOutputFiles();
 

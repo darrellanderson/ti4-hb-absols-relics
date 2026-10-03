@@ -1,0 +1,76 @@
+{
+    "Type": "Card",
+    "GUID": "F18813E20ADCECCF2344A0CD1B4D3D47",
+    "Name": "Relic Landscape",
+    "Metadata": "",
+    "CollisionType": "Regular",
+    "Friction": 0.7,
+    "Restitution": 0,
+    "Density": 0.5,
+    "SurfaceType": "Cardboard",
+    "Roughness": 1,
+    "Metallic": 0,
+    "PrimaryColor": {
+        "R": 255,
+        "G": 255,
+        "B": 255
+    },
+    "SecondaryColor": {
+        "R": 0,
+        "G": 0,
+        "B": 0
+    },
+    "Flippable": true,
+    "AutoStraighten": false,
+    "ShouldSnap": true,
+    "ScriptName": "",
+    "Blueprint": "",
+    "Models": [],
+    "Collision": [],
+    "SnapPointsGlobal": false,
+    "SnapPoints": [],
+    "ZoomViewDirection": {
+        "X": 0,
+        "Y": 0,
+        "Z": 0
+    },
+    "FrontTexture": "card/relic-landscape/hb.absol.relics/hb.absol.relics.face.jpg",
+    "BackTexture": "card/relic-landscape/hb.absol.relics/hb.absol.relics.back.jpg",
+    "HiddenTexture": "",
+    "BackIndex": -2,
+    "HiddenIndex": -1,
+    "NumHorizontal": 1,
+    "NumVertical": 4,
+    "Width": 6.3,
+    "Height": 4.2,
+    "Thickness": 0.05,
+    "HiddenInHand": true,
+    "UsedWithCardHolders": true,
+    "CanStack": true,
+    "UsePrimaryColorForSide": false,
+    "FrontTextureOverrideExposed": false,
+    "AllowFlippedInStack": false,
+    "MirrorBack": true,
+    "Model": "Rounded",
+    "Indices": [
+        0,
+        1,
+        2,
+        3
+    ],
+    "CardNames": {
+        "0": "Jr Xs445 0",
+        "1": "Plenary Orbital",
+        "2": "Quantumcore",
+        "3": "Tyrants Lament"
+    },
+    "CardMetadata": {
+        "0": "card.relic-landscape:hb.absol.relics/jr-xs445-0",
+        "1": "card.relic-landscape:hb.absol.relics/plenary-orbital",
+        "2": "card.relic-landscape:hb.absol.relics/quantumcore",
+        "3": "card.relic-landscape:hb.absol.relics/tyrants-lament"
+    },
+    "CardTags": {},
+    "GroundAccessibility": "ZoomAndContext",
+    "Tags": []
+}

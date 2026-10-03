@@ -10,4 +10,7 @@
  * DO NOT remove "card.agenda:*" unless you want to remove ALL agenda cards,
  * including ones this homebrew adds.
  */
-export const REMOVE_NSIDS: Array<string> = ["card.relic:pok/*"];
+export const REMOVE_NSIDS: Array<string> = [
+  "card.relic:pok/*",
+  "card.relic:codex.affinity/*",
+];

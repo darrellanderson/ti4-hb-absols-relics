@@ -77,7 +77,7 @@
     "CardNames": {
         "0": "Dominus Orb",
         "1": "Dynamis Core",
-        "2": "Jrx S455 0",
+        "2": "Jr Xs445 0",
         "3": "Luxarch Treatise",
         "4": "Maw of Worlds",
         "5": "Nano Forge",
@@ -99,7 +99,7 @@
     "CardMetadata": {
         "0": "card.relic:hb.absol.relics/dominus-orb",
         "1": "card.relic:hb.absol.relics/dynamis-core",
-        "2": "card.relic:hb.absol.relics/jrx-s455-0",
+        "2": "card.relic:hb.absol.relics/jr-xs445-0",
         "3": "card.relic:hb.absol.relics/luxarch-treatise",
         "4": "card.relic:hb.absol.relics/maw-of-worlds",
         "5": "card.relic:hb.absol.relics/nano-forge",
