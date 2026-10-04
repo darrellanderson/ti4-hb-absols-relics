@@ -67,8 +67,8 @@ export class RightClickFetchComponents extends AbstractRightClickCard {
       return;
     }
 
-    const spawnPos: Vector = clickedObj.getPosition().add([0, 0, 10]);
-    const cardRot: Rotator = new Rotator(0, 0, 180);
+    const clickedPos: Vector = clickedObj.getPosition();
+    const spawnPos: Vector = clickedPos.add([0, 0, 10]);
     const fetched: Array<GameObject> = [];
 
     // Fetch cards.
@@ -78,7 +78,6 @@ export class RightClickFetchComponents extends AbstractRightClickCard {
         deckAndCards.cardNsids,
         spawnPos,
       );
-      card.setRotation(cardRot);
       fetched.push(card);
       spawnPos.z += 3;
     }
@@ -86,24 +85,36 @@ export class RightClickFetchComponents extends AbstractRightClickCard {
     // Fetch game obejcts.
     for (const objNsid of this._fetchGameObjects) {
       const obj: GameObject = this._spawnGameObject(objNsid, spawnPos);
-      if (obj instanceof Card) {
-        obj.setRotation(cardRot);
-      }
       fetched.push(obj);
       spawnPos.z += 3;
     }
 
-    // Position objects in a spread.
-    const deltaY: number = 3;
-    const p0: Vector = clickedObj
-      .getPosition()
-      .subtract([0, (deltaY * (fetched.length - 1)) / 2, 0]);
-    // TODO XXX
-
-    // Maybe remove clicked object after fetching.
+    // Maybe remove clicked object.
     if (this._removeClickedObjAfterFetch) {
       DeletedItemsContainer.destroyWithoutCopying(clickedObj);
     }
+
+    // Position objects in a spread.
+    this._layoutObjects(clickedPos, fetched);
+  }
+
+  _layoutObjects(clickPos: Vector, objs: Array<GameObject>): void {
+    const deltaX: number = clickPos.x < 0 ? 3 : -3;
+    const deltaY: number = 3;
+    const p0: Vector = clickPos.subtract([
+      0,
+      (deltaY * (objs.length - 1)) / 2,
+      0,
+    ]);
+    objs.forEach((obj, i) => {
+      const pos: Vector = p0.add([deltaX, deltaY * i, 5]);
+      obj.setPosition(pos);
+      if (obj instanceof Card) {
+        obj.setRotation([0, 0, 180]);
+      }
+
+      obj.snapToGround();
+    });
   }
 
   _spawnDeckAndExtractCard(
