@@ -20,6 +20,16 @@ it("generate", async () => {
   await abstractGen.generate(errors);
   await abstractGen.writeOutputFiles();
 
+  // Normally built from injected systems/planets data,
+  // but "nano-forge" is an attachment with a legendary planet card.
+  abstractGen = new GenExtDeck(homebrew)
+    .setDeckType("legendary-planet")
+    .setIsLandscape(true)
+    .setIsSharedBack(false)
+    .setTag("card-legendary-planet");
+  await abstractGen.generate(errors);
+  await abstractGen.writeOutputFiles();
+
   await generate(homebrew);
 
   if (errors.length > 0) {

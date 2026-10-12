@@ -13,4 +13,6 @@
 export const REMOVE_NSIDS: Array<string> = [
   "card.relic:pok/*",
   "card.relic:codex.affinity/*",
+  // keep "card.relic:codex.liberation/*",
+  // keep "card.relic:thunders-edge/*",
 ];

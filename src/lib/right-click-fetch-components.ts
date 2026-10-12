@@ -21,7 +21,7 @@ type DeckAndCardsNsidType = {
 
 /**
  * Fetched related components to this card.
- * (This belongs in the main mod?)
+ * (This belongs in the main mod)
  */
 export class RightClickFetchComponents extends AbstractRightClickCard {
   private readonly _fetchDeckAndCards: Array<DeckAndCardsNsidType> = [];
@@ -73,17 +73,22 @@ export class RightClickFetchComponents extends AbstractRightClickCard {
 
     // Fetch cards.
     for (const deckAndCards of this._fetchDeckAndCards) {
-      const card: Card = this._spawnDeckAndExtractCard(
+      console.log(
+        `RightClickFetchComponents: fetching deck prefix ${deckAndCards.deckNsidPrefix}, cards ${deckAndCards.cardNsids.join(", ")}`,
+      );
+      const card: Card = this._spawnDeckAndExtractCards(
         deckAndCards.deckNsidPrefix,
         deckAndCards.cardNsids,
         spawnPos,
       );
+      console.log(`RightClickFetchComponents: |card|=${card.getStackSize()}`);
       fetched.push(card);
       spawnPos.z += 3;
     }
 
     // Fetch game obejcts.
     for (const objNsid of this._fetchGameObjects) {
+      console.log(`RightClickFetchComponents: fetching game object ${objNsid}`);
       const obj: GameObject = this._spawnGameObject(objNsid, spawnPos);
       fetched.push(obj);
       spawnPos.z += 3;
@@ -91,6 +96,7 @@ export class RightClickFetchComponents extends AbstractRightClickCard {
 
     // Maybe remove clicked object.
     if (this._removeClickedObjAfterFetch) {
+      console.log(`RightClickFetchComponents: removing clicked object`);
       DeletedItemsContainer.destroyWithoutCopying(clickedObj);
     }
 
@@ -117,7 +123,7 @@ export class RightClickFetchComponents extends AbstractRightClickCard {
     });
   }
 
-  _spawnDeckAndExtractCard(
+  _spawnDeckAndExtractCards(
     deckNsidPrefix: string,
     cardNsids: Array<string>,
     pos: Vector,
@@ -126,6 +132,7 @@ export class RightClickFetchComponents extends AbstractRightClickCard {
       deckNsidPrefix,
       pos,
     );
+    const origDeckSize: number = deck.getStackSize();
 
     // "card" might be a deck if more than one card extracted.
     const card: Card | undefined = new CardUtil().filterCards(
@@ -144,7 +151,7 @@ export class RightClickFetchComponents extends AbstractRightClickCard {
       );
     }
 
-    if (deck.getStackSize() > 0) {
+    if (origDeckSize > card.getStackSize()) {
       DeletedItemsContainer.destroyWithoutCopying(deck);
     }
     return card;
